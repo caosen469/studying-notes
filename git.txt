@@ -1,2 +1,5 @@
 https://blog.csdn.net/Jesounao/article/details/51580647
 关于git push
+
+'强行push'
+git push -u origin master -f
