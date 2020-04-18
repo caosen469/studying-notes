@@ -3,3 +3,6 @@ https://blog.csdn.net/Jesounao/article/details/51580647
 
 '强行push'
 git push -u origin master -f
+
+https://blog.csdn.net/WPwalter/article/details/80371264
+'被他妈强行push了卧槽'
