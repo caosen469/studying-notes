@@ -1,0 +1,5 @@
+tortuosity permeablity
+
+'Link between Mathematica and Matlab': https://www.mathworks.com/matlabcentral/answers/44580-linking-matlab-with-mathematica
+
+'使用python做有限元'：http://sfepy.org/doc-devel/examples.html

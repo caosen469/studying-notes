@@ -6,3 +6,22 @@ g：单刚节点 (n个刚片的复刚节点相当于n-1单刚节点)
 r：链杆数目 (一个铰约束相当于两个链杆，一个固定端约束相当于三个链杆)
 
 其实也挺好理解：有m个刚片，每个刚片有三个自由度，因此3*m是刚刚好的约束数目。一个单铰提供两个约束，所以是2h；一个刚节点提供三个约束，所以是3g；一个链杆是一个约束，所以是r。
+
+还有辅助:二元体规则，二刚片规则
+
+"Virtual work":虚功原理
+
+Table A.3 in the appendix to check the value for area or weight center
+
+"Second moment principle sign judgement":第二弯矩原理的正负号判断，使得t更大就是正，使得t变小就是负
+
+"位移法"：
+1)Analyze structure 
+Equilibrium of Joints, Equilibrium of Beam Segments.
+
+2) Assume all beam segment end moment act in the clockwise direction.
+
+1. Equilibrium of all joints
+
+MAB = '两端位移' + '外荷载造成的位移'
+    = 'End moment due to only Joint displacement' + 'End moment due to external loading'
