@@ -1,0 +1,15 @@
+"Project management"
+time - cost - quality
+
+"Delivery method"
+Design bid build; 
+Design build 
+
+"two methods for project shceduling"
+CPM: critical path method
+PERT: program evaluation & review technique
+
+ACTIVITY ON NODES
+    node: finish the activity
+ACTIVITY ON ARROW
+    arrow represent the activity

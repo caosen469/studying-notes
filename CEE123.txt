@@ -1,0 +1,32 @@
+For the first report
+
+Summary:
+what's been done and what come next
+
+Task1 checklist
+
+Task 1:
+
+2. Link type definition (Miasma beach speed-capacity table) table, and
+PLEASE use this table to double check with your network data view.
+
+
+3. Updated network map (2 layers) with labels, styles of link types, and
+legends on the corner. map should include street name; centroids; link
+type. (corrected network check with figure 2 Task 1, the light yellow line
+should be ignored.)
+Make nodes larger, easier to check on the map.
+Make sure centroid 7 & 8 are OUTSIDE of TAZs, just like the figure shows.
+
+
+4. Updated network data view, *MUST* ordered by group_code, which *MUST*
+follow the link type (check with TIPS).
+5. Double check with node 305/348, make sure you followed instruction on
+TIPS, one of the nodes should disappear after updating. PLEASE SEE Tipsfor task 1&2 and find the instruction.  
+
+"REPORT STYLE"
+Cover page
+Table of contents
+Executive Summary
+Report body
+Appendices
