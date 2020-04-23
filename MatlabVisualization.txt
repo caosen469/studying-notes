@@ -1,0 +1,45 @@
+"Hurricane Project"
+% Read data
+data = readtable('hurricanes90s.txt');
+data.Country = categorical(data.Country);
+
+% TODO - Add a new variable named 'Location' to the table 'data'
+% It should be categorical and have a value 'Land' if the row has a valid
+% country listed and 'N/A' otherwise.
+
+%get the categories of a column
+country = categories(data.Country);
+
+% Remove the 'N/A' from the column
+country = setdiff(country, 'N/A');
+
+% Merge the remain Categories to a new category 'Land' and set the result
+% to a new variables called Location
+data.Location = mergecats(data.Country, country, 'Land')
+
+% In the variable Location, rename the category 'N/A' to 'Sea' using the
+% function renamecats
+data.Location = renamecats(data.Location, 'N/A', 'Sea');
+
+
+%%% Create the scatter plot 
+
+% Find the wind speed and pressure values observed on land using the result
+% of " data.Location = 'Land' " as an index.
+
+Land_Data = data.Location == 'Land';
+onLand = data(Land_Data, :);
+
+% Scatter land data
+scatter(onLand.Windspeed, onLand.Pressure, 'red', 'filled');
+
+hold on;
+
+% Extract the on Sea data, and find the wind speed and pressure values.
+
+Sea_Data = data.Location == 'Sea';
+onSea = data(Sea_Data, :);
+
+% Scatter the sea data
+
+scatter(onSea.Windspeed, onSea.Pressure, 'blue', 'filled');

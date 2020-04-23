@@ -30,3 +30,8 @@ Table of contents
 Executive Summary
 Report body
 Appendices
+
+Trips can be modeled at the zonal, household, or person level, with "household level models" more common for "trip productions" and "zonal level" models more common for "trip attractions".
+
+"Guildlines for applying categroy models to trip generation analysis"
+Modeling approach
