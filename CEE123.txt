@@ -152,3 +152,22 @@ SSM/SST F分布检验
 
 2.每个系数是否靠谱
 t = bk / sbk t分布检验
+
+----------------------------------
+"Part3: Evaluating model results"
+
+1.Basic statistics for each variables (Descriptive statistics)
+    Means, Standard Error, OBS for each variables.
+
+2. Correlation Matrix
+    Correlation between explanatory variables should be low.
+    The greater the correlation is between explanatory variables and dependent variables, the better the overall model.
+
+3. Regression summary
+    Multiple R
+
+4. Analysis of Variance 
+    SSM/SST: variance in the dependent variables that is accounted for by the estimated model to that not accounted for by the model, is a test of overall model validity. 模型考虑了的因素/没考虑的因素
+
+5. Model Summary:
+    对每一个explanatory variables进行了t检验
