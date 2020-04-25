@@ -49,3 +49,13 @@ Using the "Three pass" method, to prevent drown in details before getting a bird
 2. Do one pass on each paper, then read "related work section" (may have one, or may part of introduction), if find a recent survey paper, read it!
 
 3. Find shared citations and repeated author names in those 3-5 papers.Then you find key researchers and papers in that area.
+
+
+-------------------------
+"Research"
+记录一下自己做到哪里了，看了那些文章，打算尝试那些文章。
+e.g. Cao 2017 --> Yao 2014
+                        --> zhang 2013
+              --> Mohmad 2006
+
+周中做作业上课，周末做自己喜欢的research
