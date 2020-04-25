@@ -35,3 +35,120 @@ Trips can be modeled at the zonal, household, or person level, with "household l
 
 "Guildlines for applying categroy models to trip generation analysis"
 Modeling approach
+
+1. TransCAD的使用
+2. 交通理论的数学知识，需要熟悉掌握数学知识，才可以用好TransCAD
+
+-------------------------------------
+"Task 5": 
+
+看看有哪些 "model summary statistics"
+    123 website
+        OLS
+    google
+
+"What is the meaning of estimating a model":
+
+使用TransCAD自己的统计功能，然后使用OSL的讲义分析各个变量的意义 
+    "what is null hypothesis?"
+
+
+
+"Selecting and Specifying models"
+
+1.如果X和Y之间没有可以测量的关系，则Y的平均值是对于任何一个X最好的预测。
+2.如果有很强的关系，则可以使用回归分析来找到这个关系。
+    回归分析：regression analysis，一个模型统领全域
+    分类分析：Caterory analysis，一部分范围内对应一个值。
+
+"Estimating and Validating the Model":
+
+OSL stands for: Ordinary Least Square, 将变量间的关系转化为一个线性方程，并且通过样本的方程和均值来调整线性方程参数的值
+
+一个简单的OSL模型，Y = b0 + b1X + e
+在使用统计方法estimate这些参数时，是基于几个假设的：
+1. 我们就假装认为正确的关系就应该是线性关系(而不是抛物线什么的)，然后残差的期望值是0.
+2. Y和残差e是没有关系的(可能的目的：e是模型自身的性质，而不是数据集的性质)
+3. Y和残差e是同方差的
+4. Y是关于数据集平均值u和方差a2的正态分布，这样才可以进行后面的显著性检验。
+
+OLS所做的事是尝试去找到自变量和因变量之间最好的线性关系，方法则是使得总误差最小 (data and model estimates).
+如果mathematical programming 去解释，就是：
+
+min E = min sigma(ei) = min sigma(Yi - Y_hat__i)^2 = min sigma(Yi - bo - biXi)^2
+
+通过一阶导数和二阶导数的条件可以求出b1和b0的值。
+
+-----------------------------------------------
+误差主要有两个
+数据点，和整个样本的平均值之间的偏差。这个偏差是每个数据点对于总偏差的"贡献"
+这个贡献可以分为比较好计算的两部分：
+1.数据点和回归模型在这个点给出的预测值之间的偏差。---数据和模型
+2.回归模型预测值和样本所有数据点平均值的偏差。---模型和整个样本
+(Yi-Y.mean) = (Yi - Yi.hat) + (Yi.hat - Y.mean)
+
+sun: sigma(Yi - Y.hat)^2 = sigma(Yi - Yi.hat)^2 + sigma(Yi.hat - Y.mean)^2
+
+or SST = SSE + SSM
+i.e. Sum of squared error = sum of the squares due to the model + sum of the squared total deviations
+
+SSE (sum of squared error) was minimized in estimating the model. 
+SSM is the error regardless of the model
+SST is the sum of the squared total deviations
+
+SST is fixed, 即 样本-平均值误差 = 样本-模型误差 + 模型-平均值误差
+
+样本-平均值误差是固定的，不随模型变化而变化的，所以可以用：
+SSM/SST 来描述模型的性能：模型-平均值误差 / 样本-平均值误差 
+这就是 R^2
+
+R^2 is a measure of goodness-of-fit. The closer the value to 1, the better the linear model is in terms of accounting for the variation in the dependent variable Y.
+R方描述的的是拟合的效果怎么样， 这个值越接近1，说明我们的线性模型在考虑Y的方差(变化)上做得越好。理论上应该就是我们的模型表现得越好。
+
+"Model significance":
+The "null hypothesis" H0 is: no valid linear relationship exists between the dependent variables and the set of k explanatory variables, at the level of a significance a.
+零假设是假定Y与X之间没有线性关系
+"有道"：零值假设或解消假设，含 义是假定被比较的两个样本的统计值来自同一个总体，它 们之间无质上的差异，其真差应等于零。那可能两个样本，一个是采集的数据，一个是模型预测？？？
+
+R方分布服从F-ratio with dfm & dfe 个自由度。k似乎是有多少个explanatory variables,n是一共有多少个数据点
+dfm = k
+dfe = n-k-1
+
+如果计算的Fa,dfm,dfe >= critical Fa,dfm,dfe. 则拒绝H0 with (100-a) percent confidence.
+
+"ANOVA TABLE"
+Source              Sum of squared              df       Mean SS         F-ratio
+Model(regression)   SSM=sigma(Y.hat-Y.mean)^2   k       MSM=SSM/k       F = MSM/MSE
+Error(residuals)    SSE=sigma(Y - Y.hat)^2      N-k-1   MSE=SSE/(N-k-1)  
+
+Total               SST=sigma(Y - Y.mean)^2     N-1
+
+我们采集了n个数据，就是我们的样本有n个自由度，model有k个explanatory variables,也就是为我们限定了k个自由度，但还是有N-k-1个自由度没有被explain。
+所以用F = MSM/MSE 反应限定的对没有限定的，来体现模型的好坏。
+
+SSM reflects the varience explained by the model's k parameters.
+SSE is unexplained varience associated with the (N-k-1) remaining degrees of freedom.
+The F-statistics is the ratio of these two variance estimates.
+A rule-of-thumb estimate for this course is a critical F = 4.0
+
+----------------------------------------------
+对应模型的F检验中，H0的意思是样本和解释变量之间没有线性关系，通过数学表达就是解释变量前的系数全部为0，如果H0被拒绝的话，就说明有些系数不是0，但是"是否有些系数跟0差不多呢？"
+每个得到的系数要进行"t检验" t-test:
+t = (bk - betak) / sbk
+bk是计算得到的，betak是系数真值，sbk是b的标准差(standard error)
+
+关于系数的检验，系数的组合(上式)符合t分布，零假设是H0：estimated coefficient is not significantly different from zero. i.e. betak = 0, so H0:bk=0
+t = bk / sbk
+
+Rejected H0 if estimated t exceeds the critical value of t
+A rule of thumb of this course is a critical t = 2.0 (for alpha = 0.05)
+
+"Summary"
+模型计算：min E = min sigma(ei) = min sigma(Yi - Y_hat__i)^2 = min sigma(Yi - bo - biXi)^2
+
+计算出来后要验证
+1.模型是否靠谱
+SSM/SST F分布检验
+
+2.每个系数是否靠谱
+t = bk / sbk t分布检验
