@@ -41,3 +41,9 @@ Stage3: Git repository
 
 "URL":URL表示了git储存库的位置。git url储存在config file当中。.git/config
 
+----------------------
+"GIT - ENVIRONMENT SET UP"
+
+
+"CUSTOMIZE GIT ENVIROMENT"
+git的所有全局配置文件都储存在 ".gitconfig"当中，这个文件在home i.e. 根目录当中。如果想将自己的配置设定为全局配置，需要在配置命令后面加一个 --globa，不然只是针对这个储存库。
