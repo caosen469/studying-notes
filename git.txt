@@ -6,3 +6,38 @@ git push -u origin master -f
 
 https://blog.csdn.net/WPwalter/article/details/80371264
 '被他妈强行push了卧槽'
+
+----------------------
+"<<Git Learn Version Control with Git a step-by-step Ultimate beginners Guide>>"
+
+Stage1: Working directory
+Stage2: Staging area (暂存区)
+Stage3: Git repository
+
+1: 在工作区修改一个文件，可能是修改，新建，删除
+2: 使用Add命令将这些修改的文件添加到暂存区
+3: 使用commit命令，将这些文件从暂存区提交到repository，使用push命令这些修改将会被永久的保存到Git repository里。
+(?我感觉commit是将修改提交到工作取得git本地库里，而push是将本地库上传到remote库里)
+
+"Blobs": stands for Binary Large Object
+一个文件的每个版本都是由blob来表示的。这个blob是文件内容data得二进制，但不包含文件的metadata。每个文件版本对应的blob都保存在git版本库中，每个文件的名字是SHA1 hash，？大概也就是内容的哈希值作为查找地址。
+
+"Trees": 树也是一个对象，每个树对象表示一个目录。一棵树，有很多分叉，有的分叉就是blob，有的是subfolder。所以trees指向了blob和sub-directory。一个tree object也是一个二进制文件，储存了blob和其子trees得references
+
+"Commit": Commit(提交) holds the current state of the repository.一个提交保存了git存储库当前的状态。
+所有的提交commit可以看作是一个链表，每个commit都是上面的一个节点，每个commit都有一个指向前一次提交得指针，所以对于一个给定的commit，你可以反过去看他之前的提交的历史。
+
+"Branches": 分支用来创造另一个发展线，来进行并行开发。创造git储存库的时候都会有一个默认的master branch。一般每个branch都用来开发一个新特征。当这个特征开发完成后，在merge回master分支中。每个分支都由其Head引用(reference),head指向该分支的最近一次提交commit。
+
+"Tags": 标签为版本库中的一个特定的版本赋予一个有意义的名字(比如version 2.0.1). Tags跟Branches很类似。但是tags是不可变的(immutable) ？大概意思就是不会不会被新的commit所影响？Tags永远指向设定tags那时的状态，而不是最新的commit。i.e. Tags是一个分支，并且是没有人会修改的分支(没有新的提交，没有删除，没有修改)
+
+"Clone": 克隆操作创造出一个储存库的对象的实例。这个操作建立的一个储存库完整的镜像。
+
+"Pull": 拉回操作将一个远程储存库实例中的改变复制到本地的一个储存库实例当中。这个操作主要是用来同步两个储存库实例的。
+
+"Push": push操作将本地储存库实例的改变复制到一个远程实例库中去。这个操作主要是用来将提交的改变永久的储存到git储存库当中。
+
+"Head": head是一个指针，永远指向一个分支中最近的一个提交。一个分支的提交储存在.git/refs/heads当中。
+
+"URL":URL表示了git储存库的位置。git url储存在config file当中。.git/config
+
