@@ -171,3 +171,13 @@ t = bk / sbk t分布检验
 
 5. Model Summary:
     对每一个explanatory variables进行了t检验
+
+
+-----------
+shortest path
+performance
+generation
+    calculation
+    stastistics
+
+? whats the reason of re allocation

@@ -25,3 +25,44 @@ Equilibrium of Joints, Equilibrium of Beam Segments.
 
 MAB = '两端位移' + '外荷载造成的位移'
     = 'End moment due to only Joint displacement' + 'End moment due to external loading'
+
+------------------------------------
+"Intro to the Direct Stiffness Method"
+
+F = K * Delta
+F: Directly identify applied loads to the joint
+Delat: Directly identify joint displacement
+
+"General step for use Directly Stiffness Method"
+1. Identify deformations considered
+    Dofs: Degree of freedom
+    Type of elements
+
+2. Assemble Structure Stiffness Matrix
+
+3. Analyze the Restrained Structure
+
+4. Transfer restrained Forces
+
+5. Draw internal force diagram
+
+Types of element to choose:
+    Truss element: Axial defrom; axial force
+    Beam element :1 2 3
+
+Member Stiffness
+i                                      j
+  -------------------------------------
+
+So, 
+1. first choose the element type.
+2. Pick up a element and write its stiffness matrix
+3. Write structure stiffness matrix via clamp the structure's node. (like rotation)
+    The stiffness coefficent is the force that needs to load on the node to make the structure has that behavior
+
+
+"LECTURE 9C"
+F = K * U 
+F: force at joints
+
+Step 4：restrained structure (in other word: clamped structure)
